@@ -1,10 +1,10 @@
 import React from "react"
 
-export default function ShowDescription(show) {
+export default function ShowDescription( showId ) {
 
     const [isExpanded, setIsExpaned] = React.useState(false)
-
-    const readMore = show.text.length > show.limit ? `${show.text.slice(0, show.limit)}...` : show.text
+    
+    const readMore = showId.text.length > showId.limit ? `${showId.text.slice(0, showId.limit)}...` : showId.text
 
     function toggleReadMore() {
         setIsExpaned((prevIsExpanded) => !prevIsExpanded)
@@ -15,27 +15,22 @@ export default function ShowDescription(show) {
 
             <div className="show-content">
 
-                <img className="preview-image" src={show.image} alt={show.title} />
+                <img className="preview-image" src={showId.image} alt={showId.title} />
 
-                <p className="preview-description">{isExpanded ? show.text : readMore}</p>
+                <p className="preview-description">{isExpanded ? showId.text : readMore}</p>
 
                 <div className="bottom-buttons">
-                    {!show.isExpanded && (
+                    {!showId.isExpanded && (
                         <button className="preview-read-more" onClick={toggleReadMore}>
                             Read More
                         </button>
                     )}
 
-                    <button onClick={show.onClose} className="preview-close" >
+                    <button onClick={showId.onClose} className="preview-close" >
                         Close
-                    </button>
-
-                    <button className="preview-watch">
-                        Seasons
                     </button>
                 </div>
             </div>
-
         </div>
     )
 }

@@ -27,7 +27,7 @@ export default function PodcastList() {
 
     function handleClose() {
         setShowPreview(null)
-    }
+    }    
 
     return (
         <div>

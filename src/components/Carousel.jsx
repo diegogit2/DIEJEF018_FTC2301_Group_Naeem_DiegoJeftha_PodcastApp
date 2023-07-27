@@ -11,7 +11,7 @@ export default function Carousel() {
 
     React.useEffect(() => {
         fetchShows()
-    }, [])
+    }, [])   
 
 
     const fetchShows = async () => {

@@ -10,7 +10,7 @@ export default function Navbar() {
       </div>
 
       <div className="nav-items">
-        <ul>
+        <ul>    
           <li>
             <img src="./src/images/magnifier.png" width="30px" height="30px" className="podcast-nav-search" />
           </li>
