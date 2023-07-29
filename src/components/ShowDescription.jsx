@@ -1,8 +1,9 @@
 import React from "react"
 
-export default function ShowDescription( showId ) {
+export default function ShowDescription (showId) {
 
     const [isExpanded, setIsExpaned] = React.useState(false)
+    
     
     const readMore = showId.text.length > showId.limit ? `${showId.text.slice(0, showId.limit)}...` : showId.text
 
@@ -12,10 +13,13 @@ export default function ShowDescription( showId ) {
 
     return (
         <div className="show-preview">
+            
 
             <div className="show-content">
 
                 <img className="preview-image" src={showId.image} alt={showId.title} />
+                
+                
 
                 <p className="preview-description">{isExpanded ? showId.text : readMore}</p>
 
@@ -29,6 +33,8 @@ export default function ShowDescription( showId ) {
                     <button onClick={showId.onClose} className="preview-close" >
                         Close
                     </button>
+
+                    <button  onClick={showId.showSeasons} className="preview-seasons">Seasons</button>
                 </div>
             </div>
         </div>

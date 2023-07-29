@@ -10,7 +10,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #5b8fcd;
+  background-color: #007bff;
 }
 
 .podcast-nav-logo {
@@ -44,7 +44,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #5b8fcd;
+  background-color: #007bff;
   height: 50px;
 }
 
@@ -114,8 +114,8 @@ body {
     margin: 10px;
    max-height: 400px;
    overflow-y: auto;
-    font-size: x-small;
-    color: white;
+   font-size: 13px;
+   color: white;
     
 }
 
@@ -125,7 +125,7 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  background-color: #5b8fcd;
+  background-color: #007bff;
   color: #fff;
 }
 
@@ -135,17 +135,21 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  background-color: #5b8fcd;
+  background-color: #007bff;
   color: #fff;
 }
 
-.preview-watch {
+.preview-season {
+  color: white;
+}
+
+.preview-seasons {
   padding: 10px 15px;
   font-size: 14px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  background-color: #5b8fcd;
+  background-color: #007bff;
   color: #fff;
 }
 
@@ -154,10 +158,6 @@ body {
   justify-content: center;
   justify-content: space-evenly;
 }
-
-/* .seasons-dropdown {
-  
-} */
 
 /* Carousel CSS */
 
@@ -186,52 +186,177 @@ body {
 
 /* Show Seasons CSS */
 
-.show-seasons-modal {
+.season-details {
+  background-color: #000000;
+  z-index: 9999;
+  height: 100%;
+  width: 100%;
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  overflow-y: scroll;
+  color: white;
+}
+
+.season-title {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding-left: 55px;
+  color: #ff6f00;
+  text-shadow: 2px 2px 4px #007bff;
+}
+
+.season-image-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  margin-top: 10px;
 }
 
-.modal-content {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  max-width: 600px;
+.season-image {
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
 }
 
-.modal-content h2 {
-  margin-bottom: 10px;
-}
-
-.modal-content ul {
-  list-style: none;
-  padding: 0;
-}
-
-.modal-content li {
-  margin-bottom: 10px;
-}
-
-.modal-close {
-  padding: 10px 15px;
-  font-size: 14px;
-  border: none;
-  border-radius: 5px;
+.season-select {
+  width: 40%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid black;
+  border-radius: 4px;
+  appearance: none;
+  color: white;
+  background-color: #007bff;
+  background-image: linear-gradient(45deg, transparent 50%, black 50%), linear-gradient(135deg, black 50%, transparent 50%);
+  background-position: calc(100% - 20px) center, calc(100% - 15px) center;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
   cursor: pointer;
-  background-color: #5b8fcd;
-  color: #fff;
+  font-size: 15px;
+  /* color: #333; */
 }
 
-.modal-close:hover {
+.season-select:focus {
+  outline: none;
+  box-shadow: 0 0 5px #007bff;
+}
+
+.season-select option {
+  font-size: 16px;
+  background-color: black;
+}
+
+.season-close {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+}
+
+.season-close:hover {
   background-color: #0056b3;
 }
 
+.season-close:focus {
+  outline: none;
+  box-shadow: 0 0 5px #007bff;
+}
+
+.season-close:active {
+  background-color: #003b80;
+}
+
+.season-date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.season-genre {
+  margin: 10px;
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.episode-container {
+  max-width: 330px;
+  padding-left: 6px;
+}
+
+.episodes {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  margin: 20px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: black;
+  box-shadow: 2px 2px 4px #007bff;
+}
+
+.episode-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.episode-title {
+  font-size: 30px;
+  font-weight: bold;
+  color: #ff6f00;
+  text-shadow: 2px 2px 4px #007bff;
+}
+
+.episodes h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.episodes p {
+  font-size: 15px;
+  color: #666;
+}
+
+.episodes audio {
+  margin-top: 10px;
+  width: 100%;
+  outline: none;
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.episodes audio::-webkit-media-controls-panel {
+  background-color:white;
+  border-radius: 3px;
+}
+
+.episodes audio::-webkit-media-controls-current-time-display {
+  margin-right: 5px;
+}
+
+.episodes audio::-webkit-media-controls-time-remaining-display {
+  margin-left: 5px;
+}
 
 
 
+
+
+
+
+
+ 
