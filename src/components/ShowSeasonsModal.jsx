@@ -5,6 +5,7 @@ export default function ShowSeasonsModal({ seasonId, openDialog, onClose }) {
     const [showSeasons, setShowSeasons] = React.useState(null)
     const [selectedSeason, setSelectedSeason] = React.useState("")
     const [error, setError] = React.useState("")
+    
 
     React.useEffect(() => {
         async function getShows() {
@@ -46,9 +47,7 @@ export default function ShowSeasonsModal({ seasonId, openDialog, onClose }) {
         day: "numeric",
     });
 
-
     return (
-
 
         <div className="season-details">
 
@@ -76,13 +75,13 @@ export default function ShowSeasonsModal({ seasonId, openDialog, onClose }) {
             </select>
 
             <button onClick={onClose} className="season-close">
-                X
+                Close
             </button>
-
+                    
             {selectedSeasonData && selectedSeasonData.length > 0 && (
                 <div className="episode-container">
                     
-                    <h2 className="episode-title">Episodes </h2>
+                    <h2 className="episode-title">Episodes: {selectedSeasonData.length} </h2>
 
                     {selectedSeasonData.map((episode) => (
                         <div key={episode.episode} className="episodes">
@@ -91,7 +90,7 @@ export default function ShowSeasonsModal({ seasonId, openDialog, onClose }) {
                                 <h4>{episode.title}</h4>
                                 <h5>Episode: {episode.episode}</h5>
                                 <p>{episode.description}</p>
-                                <audio controls>
+                                <audio controls className="audio">
                                     <source src={episode.file} type="audio/mp3" />
                                 </audio>
                             </div>

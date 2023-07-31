@@ -12,10 +12,10 @@ export default function Navbar() {
       <div className="nav-items">
         <ul>    
           <li>
-            <img src="./src/images/magnifier.png" width="30px" height="30px" className="podcast-nav-search" />
+            {/* <img src="./src/images/magnifier.png" width="30px" height="30px" className="podcast-nav-search" /> */}
           </li>
           <li>
-            <img src="./src/images/setting.png" width="30px" height="30px" className="podcast-nav-search" />
+            <img src="./src/images/setting.png" width="30px" height="30px" className="podcast-nav-settings" />
           </li>
           <li>
             <img src="./src/images/user.png" width="30px" height="30px" className="podcast-nav-user" />

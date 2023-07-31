@@ -51,9 +51,9 @@ export default function Carousel() {
                         className="carousel-images"
                         alt={show.title}
                         onClick={() => togglePreview(show)}
-                        
+
                     />
-                    
+
                 </div>))
             }
 
@@ -63,17 +63,20 @@ export default function Carousel() {
                     description={selectedShow.description}
                     text={selectedShow.description}
                     limit={200}
-                    onClose={handleClose} 
-                    showSeasons={() => toggleSeasonId(selectedShow.id)}/>
-                    
+                    seasons={selectedShow.seasons}
+                    onClose={handleClose}
+                    showSeasons={() => toggleSeasonId(selectedShow.id)} />
+
             )}
 
-            <ShowSeasonsModal
-                seasonId={seasonButton}
-                openDialog={openDialog}
-                onClose={onCloseDialog}
-                
-            />
+            {openDialog && (
+                <ShowSeasonsModal
+                    seasonId={seasonButton}
+                    openDialog={openDialog}
+                    onClose={onCloseDialog}
+                />
+            )}
+
         </div>
     )
 }

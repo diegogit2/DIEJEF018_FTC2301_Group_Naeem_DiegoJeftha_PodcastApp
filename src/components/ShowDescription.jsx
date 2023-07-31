@@ -19,7 +19,7 @@ export default function ShowDescription (showId) {
 
                 <img className="preview-image" src={showId.image} alt={showId.title} />
                 
-                
+                <p className="preview-season">Seasons: {showId.seasons}</p>
 
                 <p className="preview-description">{isExpanded ? showId.text : readMore}</p>
 
@@ -40,3 +40,4 @@ export default function ShowDescription (showId) {
         </div>
     )
 }
+
