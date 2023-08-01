@@ -70,6 +70,10 @@ export default function PodcastList() {
         setShows(sortedShows);
     }
 
+    const handleSearchResults = (results) => {
+        setShows(results);
+      };
+
     return (
         <div>
 
@@ -84,7 +88,7 @@ export default function PodcastList() {
             </div>
 
             <div className="">
-                <Search />
+                <Search onSearch={handleSearchResults}/>
             </div>
 
 
@@ -123,4 +127,3 @@ export default function PodcastList() {
 
     )
 }
-

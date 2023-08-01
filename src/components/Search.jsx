@@ -1,7 +1,8 @@
 import React from "react"
 import Fuse from "fuse.js"
+import PropTypes from "prop-types"
 
-export default function Search() {
+export default function Search({ onSearch }) {
     const [searchQuery, setSearchQuery] = React.useState("") // Store users search input
     const [searchResults, setSearchResults] = React.useState([]); // Store results of search
     const [podcasts, setPodcasts] = React.useState([]); // Store podcast data
@@ -35,9 +36,12 @@ export default function Search() {
     const handleSearchClick = () => {  // Checks if search query is empty, if it is,
         if (searchQuery.trim() === "") {  // sets the searchResults state to empty array
             setSearchResults([]);
+            onSearch(podcasts)
         } else {                  // otherwise use the fuse instance to do the search and updates searchResult state 
             const results = fuse.search(searchQuery).map((result) => result.item);  //with the search results
             setSearchResults(results);
+
+            onSearch(results)
         }
     };
 
@@ -51,16 +55,11 @@ export default function Search() {
             />
             <button onClick={handleSearchClick} className="search-button">Search</button>
 
-            {searchResults.length > 0 && (
-                <div className="search-results">
-                    {searchResults.map((podcast) => (
-                        <div key={podcast.id} className="search-result-item">
-                            <img src={podcast.image} alt={podcast.title} width="50" height="50" />
-                            <span>{podcast.title}</span>
-                        </div>
-                    ))}
-                </div>
-            )}
+            
         </div>
     )
+}
+
+Search.propTypes = {
+    onSearch: PropTypes.func,
 }
