@@ -1,9 +1,18 @@
 import React from "react"
 import PropTypes from "prop-types"
 
+
+/**
+ * Component representing a modal with details of a podcast show's seasons and episodes.
+ * @param {Object} props - The component props.
+ * @param {string} props.seasonId - The ID of the selected season.
+ * @param {boolean} props.openDialog - indicates whether the dialog is open or not.
+ * @param {function} props.onClose - Callback function to close the modal.
+ * @returns {JSX.Element} JSX element representing the ShowSeasonsModal component.
+ */
 export default function ShowSeasonsModal({ seasonId, openDialog, onClose }) {
-    const [showSeasons, setShowSeasons] = React.useState(null)
-    const [selectedSeason, setSelectedSeason] = React.useState("")
+    const [showSeasons, setShowSeasons] = React.useState(null) // Holds the data of the selected show's seasons and episodes
+    const [selectedSeason, setSelectedSeason] = React.useState("") // Tracks the selected season 
     const [error, setError] = React.useState("")
     
 
@@ -37,7 +46,7 @@ export default function ShowSeasonsModal({ seasonId, openDialog, onClose }) {
         setSelectedSeason(selectedSeasonId);
     };
 
-    const selectedSeasonData =
+    const selectedSeasonData = // Holds the episodes 
         selectedSeason &&
         showSeasons.seasons.find((season) => season.season === Number(selectedSeason))?.episodes
 

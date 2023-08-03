@@ -19,7 +19,6 @@ export default function Sort({ onSortChange }) {
                 <option value="desc">Z to A</option>
                 <option value="Date (Ascending)">Date (Ascending)</option>
                 <option value="Date (Descending)">Date (Descending)</option>
-
             </select>
         </div>
     )

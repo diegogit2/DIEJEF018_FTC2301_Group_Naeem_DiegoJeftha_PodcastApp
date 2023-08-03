@@ -51,7 +51,6 @@ export default function Carousel() {
                         className="carousel-images"
                         alt={show.title}
                         onClick={() => togglePreview(show)}
-
                     />
 
                 </div>))

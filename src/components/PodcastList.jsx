@@ -5,7 +5,13 @@ import Carousel from "./Carousel"
 import ShowSeasonsModal from "./ShowSeasonsModal"
 import Sort from "./Sort"
 import Search from "./Search"
+import Navbar from "./Navbar"
 
+
+/**
+ * Component representing a list of podcasts.
+ * @returns {JSX.Element} JSX element representing the PodcastList component.
+ */
 export default function PodcastList() {
 
     const [shows, setShows] = React.useState([]) // Stores list of shows
@@ -70,12 +76,18 @@ export default function PodcastList() {
         setShows(sortedShows);
     }
 
+    /**
+   * Callback function to handle search results and update the shows state.
+   * @param {Array} results - An array of podcast shows as search results.
+   */
     const handleSearchResults = (results) => {
         setShows(results);
       };
 
     return (
         <div>
+            
+            <Navbar />
 
             <div>
                 <Carousel />
